@@ -18,7 +18,20 @@
     "noUncheckedIndexedAccess": true,
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
+      "@pages/*": ["./src/pages/*"],
+      "@components/*": ["./src/components/*"],
+      "@styles/*": ["./src/styles/*"],
+      "@public/*": ["./public/*"],
+      "@lib/*": ["./src/lib/*"],
+      "@utils/*": ["./src/utils/*"],
+      "@addOns/*": ["./src/addOns/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@secure/*": ["./src/secure/*"],
+      "@data/*": ["./src/data/*"],
+      "@assets/*": ["./src/assets/*"],
+      "@images/*": ["./public/images/*"],
+      "@json/*": ["./src/json/*"],
     }
   },
   "include": [
