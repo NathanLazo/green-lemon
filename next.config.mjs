@@ -32,5 +32,8 @@ export default withPWA(
       locales: ["en"],
       defaultLocale: "en",
     },
+    images: {
+      domains: ["res.cloudinary.com", "lh3.googleusercontent.com"],
+    },
   })
 );

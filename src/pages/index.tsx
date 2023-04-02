@@ -6,11 +6,25 @@ import FAQComponent from "@components/home/faq";
 import MoreInfoComponent from "@components/home/more";
 import Footer from "@components/footer";
 import { useSession } from "next-auth/react";
+import { useEffect } from "react";
 
 const Home: NextPage = () => {
+  // const { data: session } = useSession();
 
-  const user = useSession();
-  console.log("🚀 ~ file: index.tsx:13 ~ user:", user)
+  useEffect(() => {
+    Notification.requestPermission()
+      .then((permission) => {
+        if (permission === "granted") {
+          new Notification("Bienvenido a Green Lemon", {
+            body: "Nuestra empresa es la opción perfecta para aquellos amantes de los sabores auténticos y la alta calidad gastronómica.",
+            icon: "/favicon.ico",
+          });
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  }, []);
 
   return (
     <>

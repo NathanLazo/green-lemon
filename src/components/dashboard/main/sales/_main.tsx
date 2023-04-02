@@ -8,11 +8,10 @@ import BranchesComponent from './items/branches'
 import TablesComponent from './items/tables'
 import ProductsComponent from './items/products'
 
-import type { Branch, CategoriesWithProducts, Table } from './types'
+import type { Branch, Table } from '../../types'
 
 
 interface mainProps {
-    categoriesWithProducts: CategoriesWithProducts,
     branches: Branch[],
 
     setSliderOpen: (value: boolean) => void
@@ -27,7 +26,6 @@ interface mainProps {
 
 
 const Main: FC<mainProps> = ({
-    categoriesWithProducts,
     branches,
     setSliderOpen,
     setSelectedBranch,
@@ -116,7 +114,7 @@ const Main: FC<mainProps> = ({
                         ))}
                     </ol>
                 </nav>
-                {/* Items components */}
+                {/* Items components (you can find them on items folder) */}
                 {!selectedBranch &&
                     <BranchesComponent branches={branches} setSelectedBranch={setSelectedBranch} />}
 
@@ -124,7 +122,7 @@ const Main: FC<mainProps> = ({
                     <TablesComponent selectedBranch={selectedBranch} setSelectedTable={setSelectedTable} />}
 
                 {selectedBranch && selectedTable &&
-                    <ProductsComponent categoriesWithProducts={categoriesWithProducts} selectedTable={selectedTable} />}
+                    <ProductsComponent selectedTable={selectedTable} />}
 
             </main>
         </>

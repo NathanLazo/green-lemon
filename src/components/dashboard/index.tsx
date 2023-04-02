@@ -2,40 +2,26 @@ import { useState } from 'react'
 import { Cog6ToothIcon, ClockIcon, HomeIcon, ChartBarSquareIcon } from '@heroicons/react/24/outline'
 
 // components
-import MobileSidebar from './mobile/MobileSidebar'
-import DesktopSidebar from './desktop/DesktopSidebar'
-import MobileHeader from './mobile/MobileHeader'
-import Main from './main'
+import MobileSidebar from './navs/mobile/MobileSidebar'
+import MobileHeader from './navs/mobile/MobileHeader'
+import DesktopSidebar from './navs/desktop/DesktopSidebar'
 import Slider from './slider'
-import type { Branch, CategoriesWithProducts, Products, Table } from './types'
+import Sales from './main/sales/_main'
+import ProductsConfig from './main/products/_main'
+
+
+import type { Branch, Table } from './types'
+
+
 
 
 const navigation = [
-    { name: 'Home', href: '#', icon: HomeIcon, current: true },
-    { name: 'Corte', href: '#', icon: ClockIcon, current: false },
-    { name: 'Métricas', href: '#', icon: ChartBarSquareIcon, current: false },
-    { name: 'Productos config', href: '#', icon: Cog6ToothIcon, current: false },
-    { name: 'Sucursales config', href: '#', icon: Cog6ToothIcon, current: false },
+    { id: 1, name: 'Home', icon: HomeIcon },
+    { id: 2, name: 'Corte', icon: ClockIcon },
+    { id: 3, name: 'Métricas', icon: ChartBarSquareIcon },
+    { id: 4, name: 'Productos config', icon: Cog6ToothIcon },
+    { id: 5, name: 'Sucursales config', icon: Cog6ToothIcon },
 ]
-
-
-
-const categoriesWithProducts: CategoriesWithProducts = [
-    {
-        category: "ice-cream",
-        products: [
-            {
-                id: 1,
-                title: 'Nieve chica',
-                description: "Lorem test",
-                image: "asd",
-                price: 10,
-            },
-        ]
-    },
-]
-
-
 
 const branches: Branch[] = [
     {
@@ -56,7 +42,10 @@ const branches: Branch[] = [
 export default function Example() {
     // UI
     const [sidebarOpen, setSidebarOpen] = useState(false)
-    const [openSlider, setSliderOpen] = useState(true)
+    const [openSlider, setSliderOpen] = useState(false)
+
+    // Navigation
+    const [currentNavigation, setCurrentNavigation] = useState(1)
 
     // Selected items
     const [selectedBranch, setSelectedBranch] = useState<Branch | null>(null)
@@ -79,6 +68,8 @@ export default function Example() {
 
                 <DesktopSidebar
                     navigation={navigation}
+                    setCurrentNavigation={setCurrentNavigation}
+                    currentNavigation={currentNavigation}
                 />
 
                 {/* Main column */}
@@ -87,19 +78,25 @@ export default function Example() {
                         setSidebarOpen={setSidebarOpen}
                     />
 
-                    <Main
-                        // Items
-                        branches={branches}
-                        categoriesWithProducts={categoriesWithProducts}
-                        // UI
-                        setSliderOpen={setSliderOpen}
-                        // set selected items
-                        setSelectedBranch={setSelectedBranch}
-                        setSelectedTable={setSelectedTable}
-                        // selected items
-                        selectedBranch={selectedBranch}
-                        selectedTable={selectedTable}
-                    />
+                    {
+                        currentNavigation == 1 &&
+                        <Sales
+                            // Items
+                            branches={branches}
+                            // UI
+                            setSliderOpen={setSliderOpen}
+                            // set selected items
+                            setSelectedBranch={setSelectedBranch}
+                            setSelectedTable={setSelectedTable}
+                            // selected items
+                            selectedBranch={selectedBranch}
+                            selectedTable={selectedTable}
+                        />
+                    }
+                    {
+                        currentNavigation == 4 &&
+                        <ProductsConfig />
+                    }
 
                 </div>
             </div>

@@ -2,7 +2,7 @@ import type { FC } from 'react';
 
 import { UserGroupIcon } from '@heroicons/react/20/solid'
 
-import type { Branch, Table } from '../types';
+import type { Branch, Table } from '../../types';
 
 
 interface tablesProps {

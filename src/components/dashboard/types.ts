@@ -1,20 +1,19 @@
 import type { ForwardRefExoticComponent, SVGProps } from "react";
 
 type navigation = {
+  id: number;
   name: string;
-  href: string;
   icon: ForwardRefExoticComponent<
     SVGProps<SVGSVGElement> & {
       title?: string | undefined;
       titleId?: string | undefined;
     }
   >;
-  current: boolean;
 }[];
 
 type Products = {
   id: number;
-  title: string;
+  name: string;
   description: string;
   image: string;
   price: number;

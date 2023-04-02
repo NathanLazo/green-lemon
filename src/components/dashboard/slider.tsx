@@ -49,7 +49,7 @@ const Slider: FC<SliderProps> = ({ openSlider, setSliderOpen }) => {
                                     <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                                         <div className="p-6">
                                             <div className="flex items-start justify-between">
-                                                <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">Team</Dialog.Title>
+                                                <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">Carrito de la mesa: </Dialog.Title>
                                                 <div className="ml-3 flex h-7 items-center">
                                                     <button
                                                         type="button"

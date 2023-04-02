@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import type { Branch } from '../types';
+import type { Branch } from '../../../types';
 
 import { BuildingStorefrontIcon } from '@heroicons/react/20/solid'
 

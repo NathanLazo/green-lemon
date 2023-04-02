@@ -1,6 +1,6 @@
 import { type FC, Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react'
-import type { navigation } from '../types';
+import type { navigation } from '../../types';
 import { XMarkIcon } from '@heroicons/react/24/outline'
 
 
