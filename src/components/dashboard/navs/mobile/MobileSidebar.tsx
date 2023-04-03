@@ -79,7 +79,6 @@ const MobileSidebar: FC<MobileSidebarProps> = ({
                                             {navigation.map((item) => (
                                                 <a
                                                     key={item.name}
-                                                    href={item.href}
                                                     className={classNames(
                                                         item.current
                                                             ? 'bg-zinc-100 text-zinc-900'

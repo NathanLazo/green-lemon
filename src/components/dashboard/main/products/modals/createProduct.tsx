@@ -1,15 +1,19 @@
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
+
+// UI
 import { type FC, Fragment } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
+import { ArrowPathIcon } from '@heroicons/react/24/outline';
+import { toast } from 'react-hot-toast';
 
 //typed form
 import { z } from "zod";
 import { type SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from 'react-hot-toast';
+
+// API
 import { api } from '~/utils/api';
-import { ArrowPathIcon } from '@heroicons/react/24/outline';
 
 
 // image upload constraints for schema
@@ -90,7 +94,7 @@ const CreateProduct: FC<createProductProps> = ({
                 name: product.name,
                 description: product.description || "",
                 image: product.image,
-                price: +product.price || 0,
+                price: product.price? parseInt(product.price) : 0,
                 categoryId: product.category
             })
             toast.success("Producto creado con éxito")

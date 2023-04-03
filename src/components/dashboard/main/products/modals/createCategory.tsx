@@ -1,8 +1,10 @@
+// UI
 import { type FC, Fragment, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
-
-import { api } from '~/utils/api';
 import { toast } from 'react-hot-toast';
+
+// API
+import { api } from '~/utils/api';
 
 interface createCategoryProps {
     open: boolean,

@@ -9,7 +9,7 @@ import cheesecakeChocolate from '@images/company/cheesecakeChocolate.png'
 
 import { Cookies } from 'typescript-cookie';
 
-import type {  Table } from '../../types';
+import type {  Table } from '../../../types'
 import { toast } from 'react-hot-toast';
 
 // API
