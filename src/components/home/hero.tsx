@@ -88,7 +88,7 @@ export default function Example() {
                                     </div>
                                     <div className="py-6">
                                         <Link
-                                            href="#"
+                                            href="/login"
                                             className="-mx-3 block rounded-lg py-2.5 px-3 text-base font-semibold leading-7 text-green-900 hover:bg-green-50"
                                         >
                                             Log in

@@ -1,32 +1,42 @@
-import { Fragment, type FC } from 'react'
+//  UI
+import { Fragment, type FC, useState, useEffect } from 'react'
 import { Dialog, Menu, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { EllipsisVerticalIcon } from '@heroicons/react/20/solid'
-import type { Products } from './types'
 
-const team = [
-    {
-        name: 'Leslie Alexander',
-        handle: 'lesliealexander',
-        href: '#',
-        imageUrl:
-            'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-        status: 'online',
-    },
-    // More people...
-]
+// Types
+import type { Products, Table } from './types'
+
+// Cookies
+import { Cookies } from 'typescript-cookie'
+
+// Images
+import Image from 'next/image'
 
 interface SliderProps {
     openSlider: boolean
     setSliderOpen: (openSlider: boolean) => void
+    selectedTable: Table | null
 }
 
 function classNames(...classes: string[]) {
     return classes.filter(Boolean).join(' ')
 }
 
-const Slider: FC<SliderProps> = ({ openSlider, setSliderOpen }) => {
+const Slider: FC<SliderProps> = ({ openSlider, setSliderOpen, selectedTable }) => {
+    const [cart, setCart] = useState<Products>([])
 
+    const total = cart?.reduce((acc, item) => acc + item.price, 0)
+
+    useEffect(() => {
+        if (selectedTable) {
+            const cart = Cookies.get(selectedTable.id.toString()) as string;
+            if (!cart) return setCart([]);
+            const parsedCart = JSON.parse(cart) as Products;
+
+            setCart(parsedCart)
+        }
+    }, [selectedTable, openSlider])
 
     return (
         <Transition.Root show={openSlider} as={Fragment}>
@@ -68,28 +78,27 @@ const Slider: FC<SliderProps> = ({ openSlider, setSliderOpen }) => {
                                             </div>
                                         </div>
                                         <ul role="list" className="flex-1 divide-y divide-gray-200 overflow-y-auto">
-                                            {team.map((person) => (
-                                                <li key={person.handle}>
+                                            {cart?.map((item) => (
+                                                <li key={`product: ${item.id}`}>
                                                     <div className="group relative flex items-center px-5 py-6">
-                                                        <a href={person.href} className="-m-1 block flex-1 p-1">
+                                                        <div className="-m-1 block flex-1 p-1">
                                                             <div className="absolute inset-0 group-hover:bg-gray-50" aria-hidden="true" />
                                                             <div className="relative flex min-w-0 flex-1 items-center">
                                                                 <span className="relative inline-block flex-shrink-0">
-                                                                    <img className="h-10 w-10 rounded-full" src={person.imageUrl} alt="" />
-                                                                    <span
-                                                                        className={classNames(
-                                                                            person.status === 'online' ? 'bg-green-400' : 'bg-gray-300',
-                                                                            'absolute top-0 right-0 block h-2.5 w-2.5 rounded-full ring-2 ring-white'
-                                                                        )}
-                                                                        aria-hidden="true"
+                                                                    <Image
+                                                                        className="h-10 w-10 rounded-full"
+                                                                        src={item.image}
+                                                                        alt={`product: ${item.name}`}
+                                                                        width={50}
+                                                                        height={50}
                                                                     />
                                                                 </span>
                                                                 <div className="ml-4 truncate">
-                                                                    <p className="truncate text-sm font-medium text-gray-900">{person.name}</p>
-                                                                    <p className="truncate text-sm text-gray-500">{'@' + person.handle}</p>
+                                                                    <p className="truncate text-sm font-medium text-gray-900">{item.name}</p>
+                                                                    <p className="truncate text-sm text-gray-500">{`$ ${item.price}`}</p>
                                                                 </div>
                                                             </div>
-                                                        </a>
+                                                        </div>
                                                         <Menu as="div" className="relative ml-2 inline-block flex-shrink-0 text-left">
                                                             <Menu.Button className="group relative inline-flex h-8 w-8 items-center justify-center rounded-full bg-white focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2">
                                                                 <span className="sr-only">Open options menu</span>
@@ -145,6 +154,35 @@ const Slider: FC<SliderProps> = ({ openSlider, setSliderOpen }) => {
                                                 </li>
                                             ))}
                                         </ul>
+                                        <div className='bg-gray-200 h-auto w-full py-2 px-4'>
+                                            <section>
+                                                <h2 id="summary-heading" className="sr-only">
+                                                    Order summary
+                                                </h2>
+
+                                                <div>
+                                                    <dl className="space-y-4">
+                                                        <div className="flex items-center justify-between">
+                                                            <dt className="text-base font-medium text-gray-900">Subtotal</dt>
+                                                            <dd className="ml-4 text-lg font-medium text-gray-900">${total}</dd>
+                                                        </div>
+                                                    </dl>
+                                                    <p className="mt-1 text-sm text-gray-500">
+                                                        El precio no incluye el 10% de propina.
+                                                    </p>
+                                                </div>
+
+                                                <div className="mt-10">
+                                                    <button
+                                                        type="button"
+                                                        className="w-full rounded-md border border-transparent bg-green-600 px-4 py-3 text-base font-medium text-white shadow-sm hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:ring-offset-gray-50"
+                                                        onClick={() => setSliderOpen(false)}
+                                                    >
+                                                        Checkout
+                                                    </button>
+                                                </div>
+                                            </section>
+                                        </div>
                                     </div>
                                 </Dialog.Panel>
                             </Transition.Child>

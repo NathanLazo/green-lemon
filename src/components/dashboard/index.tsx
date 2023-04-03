@@ -26,14 +26,50 @@ const navigation = [
 const branches: Branch[] = [
     {
         id: 1,
-        name: "Sucursal 1",
-        address: "Calle 1",
-        phone: "1234567890",
+        name: "Sucursal principal",
+        address: "Republica de ecuador 321",
+        phone: "6141292924",
         tables: [
             {
                 id: 1,
                 name: "Mesa 1",
-            }
+            },
+            {
+                id: 2,
+                name: "Mesa 2",
+            },
+            {
+                id: 3,
+                name: "Mesa 3",
+            },
+            {
+                id: 4,
+                name: "Mesa 4",
+            },
+            {
+                id: 5,
+                name: "Mesa 5",
+            },
+            {
+                id: 6,
+                name: "Mesa 6",
+            },
+            {
+                id: 7,
+                name: "Mesa 7",
+            },
+            {
+                id: 8,
+                name: "Mesa 8",
+            },
+            {
+                id: 9,
+                name: "Mesa 9",
+            },
+            {
+                id: 10,
+                name: "Mesa 10",
+            },
         ]
     }
 ]
@@ -50,24 +86,32 @@ export default function Example() {
     // Selected items
     const [selectedBranch, setSelectedBranch] = useState<Branch | null>(null)
     const [selectedTable, setSelectedTable] = useState<Table | null>(null)
+    
 
     return (
         <>
             <Slider
                 openSlider={openSlider}
                 setSliderOpen={setSliderOpen}
+
+                selectedTable={selectedTable}
             />
 
             <div className="min-h-full">
 
                 <MobileSidebar
                     navigation={navigation}
+
                     sidebarOpen={sidebarOpen}
                     setSidebarOpen={setSidebarOpen}
+
+                    currentNavigation={currentNavigation}
+                    setCurrentNavigation={setCurrentNavigation}
                 />
 
                 <DesktopSidebar
                     navigation={navigation}
+                    
                     setCurrentNavigation={setCurrentNavigation}
                     currentNavigation={currentNavigation}
                 />
