@@ -79,19 +79,18 @@ const MobileSidebar: FC<MobileSidebarProps> = ({
                                             {navigation.map((item) => (
                                                 <a
                                                     key={item.name}
-                                                    className={classNames(
-                                                        item.current
-                                                            ? 'bg-zinc-100 text-zinc-900'
-                                                            : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900',
-                                                        'group flex items-center rounded-md px-2 py-2 text-base font-medium leading-5'
-                                                    )}
-                                                    aria-current={item.current ? 'page' : undefined}
+                                                    // className={classNames(
+                                                    //     item.current
+                                                    //         ? 'bg-zinc-100 text-zinc-900'
+                                                    //         : 'text-zinc-600 hover:bg-zinc-50 hover:text-zinc-900',
+                                                    //     'group flex items-center rounded-md px-2 py-2 text-base font-medium leading-5'
+                                                    // )}
                                                 >
                                                     <item.icon
-                                                        className={classNames(
-                                                            item.current ? 'text-zinc-500' : 'text-zinc-400 group-hover:text-zinc-500',
-                                                            'mr-3 h-6 w-6 flex-shrink-0'
-                                                        )}
+                                                        // className={classNames(
+                                                        //     item.current ? 'text-zinc-500' : 'text-zinc-400 group-hover:text-zinc-500',
+                                                        //     'mr-3 h-6 w-6 flex-shrink-0'
+                                                        // )}
                                                         aria-hidden="true"
                                                     />
                                                     {item.name}
