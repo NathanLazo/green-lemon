@@ -25,7 +25,7 @@
       "@public/*": ["./public/*"],
       "@lib/*": ["./src/lib/*"],
       "@utils/*": ["./src/utils/*"],
-      "@addOns/*": ["./src/addOns/*"],
+      "@addOns/*": ["src/threejs/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@secure/*": ["./src/secure/*"],
       "@data/*": ["./src/data/*"],

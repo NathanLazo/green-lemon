@@ -9,6 +9,7 @@ import TablesComponent from './items/tables'
 import ProductsComponent from './items/products'
 
 import type { Branch, Table } from '../../types'
+import Tables3d from './items/tables3d';
 
 
 interface mainProps {
@@ -119,7 +120,13 @@ const Main: FC<mainProps> = ({
                     <BranchesComponent branches={branches} setSelectedBranch={setSelectedBranch} />}
 
                 {selectedBranch && !selectedTable &&
-                    <TablesComponent selectedBranch={selectedBranch} setSelectedTable={setSelectedTable} />}
+                    <Tables3d
+                        selectedBranch={selectedBranch}
+                        setSelectedTable={setSelectedTable}
+                    />
+                }
+                {/* {selectedBranch && !selectedTable && <TablesComponent selectedBranch={selectedBranch} setSelectedTable={setSelectedTable} />} */}
+
 
                 {selectedBranch && selectedTable &&
                     <ProductsComponent selectedTable={selectedTable} />}

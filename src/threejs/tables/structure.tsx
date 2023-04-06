@@ -1,0 +1,107 @@
+import type { FC } from 'react';
+
+
+const Structure: FC = ({ }) => {
+    return (
+        <>
+            <mesh
+                position={[5, -1, .5]}
+                scale={[.5, .5, 11]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+            <mesh
+                position={[0, -1, -3.5]}
+                scale={[.5, .5, 3]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+            <mesh
+                position={[0, -1, 3.5]}
+                scale={[.5, .5, 3]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+            <mesh
+                position={[-2.5, -1, 4]}
+                scale={[.5, .5, 5]}
+                rotation={[0, Math.PI / 2, 0]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+            <mesh
+                position={[-2.5, -1, -4]}
+                scale={[.5, .5, 5]}
+                rotation={[0, Math.PI / 2, 0]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+            <mesh
+                position={[-5, -1, 0]}
+                scale={[.5, .5, 8]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+            <mesh
+                position={[-.5, -1, 8]}
+                scale={[.5, .5, 6]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+            <mesh
+                position={[.5, -1, 6]}
+                scale={[.5, .5, 1.5]}
+                rotation={[0, Math.PI / 2, 0]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+            <mesh
+                position={[3.5, -1, 6]}
+                scale={[.5, .5, 3]}
+                rotation={[0, Math.PI / 2, 0]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+            <mesh
+                position={[5, -1, 8]}
+                scale={[.5, .5, 6]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="white" />
+            </mesh>
+
+
+
+            <mesh
+                position={[2.5, -.8, -5]}
+                scale={[4, .1, 1]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="brown" />
+            </mesh>
+
+
+
+            <mesh
+                position={[0, -1, 0]}
+                rotation={[-Math.PI / 2, 0, 0]}
+                scale={[30, 30, 30]}
+            >
+                <planeGeometry />
+                <meshStandardMaterial
+                    color="#C5E4B5"
+                />
+            </mesh>
+        </>
+    );
+}
+export default Structure;
