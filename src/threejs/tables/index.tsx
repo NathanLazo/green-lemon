@@ -1,8 +1,6 @@
 // UI
 import type { FC } from 'react';
 
-// ThreeJS
-import { OrbitControls } from '@react-three/drei'
 
 // Components
 import Structure from './structure';

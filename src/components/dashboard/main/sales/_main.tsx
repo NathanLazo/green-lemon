@@ -1,11 +1,10 @@
 // UI
 import { type FC } from 'react'
-import { HomeIcon, BuildingStorefrontIcon } from '@heroicons/react/20/solid'
+import { HomeIcon } from '@heroicons/react/20/solid'
 import toast from 'react-hot-toast'
 
 // components
 import BranchesComponent from './items/branches'
-import TablesComponent from './items/tables'
 import ProductsComponent from './items/products'
 
 import type { Branch, Table } from '../../types'
@@ -125,8 +124,6 @@ const Main: FC<mainProps> = ({
                         setSelectedTable={setSelectedTable}
                     />
                 }
-                {/* {selectedBranch && !selectedTable && <TablesComponent selectedBranch={selectedBranch} setSelectedTable={setSelectedTable} />} */}
-
 
                 {selectedBranch && selectedTable &&
                     <ProductsComponent selectedTable={selectedTable} />}

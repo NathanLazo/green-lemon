@@ -79,6 +79,13 @@ const Structure: FC = ({ }) => {
                 <meshStandardMaterial color="white" />
             </mesh>
 
+            <mesh
+                position={[2.5, -.8, -5]}
+                scale={[4, .1, .5]}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="brown" />
+            </mesh>
 
 
             <mesh
