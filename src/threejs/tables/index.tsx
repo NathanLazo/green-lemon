@@ -25,8 +25,7 @@ const Tables: FC<tablesProps> = ({
             <>
              <color attach="background" args={['#171717']} />
                 <ambientLight intensity={.25} />
-                <directionalLight color="white" position={[0, 2, 5]}/>
-                <OrbitControls />
+                <directionalLight color="white" position={[0, 2, 5]}/>     
                 <Structure />
                 <TablesComponent 
                     setSelectedTable={setSelectedTable}

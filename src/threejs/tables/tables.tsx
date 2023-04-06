@@ -55,6 +55,7 @@ const tables: FC<tablesProps> = ({
                 <boxGeometry />
                 <meshStandardMaterial color="green" />
             </mesh>
+            {/* Table 6 */}
             <mesh
                 position={[-3.5, -1, 2.2]}
                 scale={[1.2, .2, 1.2]}
@@ -63,7 +64,49 @@ const tables: FC<tablesProps> = ({
             >
                 <boxGeometry />
                 <meshStandardMaterial color="green" />
+
             </mesh>
+            {/* Table 7 */}
+            <mesh
+                position={[.6, -1, 7.2]}
+                scale={[1.2, .2, 1.2]}
+                onClick={() => setSelectedTable({ id: 7, name: 'Table 7'})}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="green" />
+
+            </mesh>
+            {/* Table 8 */}
+            <mesh
+                position={[.6, -1, 10.2]}
+                scale={[1.2, .2, 1.2]}
+                onClick={() => setSelectedTable({ id: 8, name: 'Table 8'})}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="green" />
+
+            </mesh>
+            {/* Table 9 */}
+            <mesh
+                position={[3.8, -1, 10.2]}
+                scale={[1.2, .2, 1.2]}
+                onClick={() => setSelectedTable({ id: 9, name: 'Table 9'})}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="green" />
+
+            </mesh>
+            {/* Table 10 */}
+            <mesh
+                position={[3.8, -1, 7.2]}
+                scale={[1.2, .2, 1.2]}
+                onClick={() => setSelectedTable({ id: 10, name: 'Table 10'})}
+            >
+                <boxGeometry />
+                <meshStandardMaterial color="green" />
+
+            </mesh>
+
         </>
     );
 }

@@ -82,19 +82,9 @@ const Structure: FC = ({ }) => {
 
 
             <mesh
-                position={[2.5, -.8, -5]}
-                scale={[4, .1, 1]}
-            >
-                <boxGeometry />
-                <meshStandardMaterial color="brown" />
-            </mesh>
-
-
-
-            <mesh
-                position={[0, -1, 0]}
+                position={[0, -1, 3]}
                 rotation={[-Math.PI / 2, 0, 0]}
-                scale={[30, 30, 30]}
+                scale={[13, 18, 1]}
             >
                 <planeGeometry />
                 <meshStandardMaterial

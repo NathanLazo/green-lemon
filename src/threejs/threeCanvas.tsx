@@ -14,7 +14,14 @@ const ThreeCanvas: FC<ThreeCanvasProps> = (
             <Suspense fallback={
                 <p>Cargando mesas...</p>
             }>
-                <Canvas>
+                <Canvas
+                    camera={
+                        {
+                            position: [-1, 10, 3],
+                            rotation: [Math.PI / 2, Math.PI / 1, Math.PI / 2]
+                        }
+                    }
+                >
                     {children}
                 </Canvas>
             </Suspense>
